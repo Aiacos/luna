@@ -14,6 +14,7 @@ import luna_builder.menus as menus
 import luna_builder.editor.node_editor as node_editor
 import luna_builder.editor.node_nodes_palette as node_nodes_palette
 import luna_builder.editor.node_scene_vars as node_scene_vars
+import luna_builder.editor.editor_conf as editor_conf
 from luna_builder.editor.node_scene_history import SceneHistoryWidget
 
 
@@ -54,6 +55,9 @@ class BuilderMainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, parent=pysideFn.maya_main_window()):
         super(BuilderMainWindow, self).__init__(parent)
+
+        # Load editor plugins (registers nodes for the palette)
+        editor_conf.load_plugins()
 
         # Window adjustments
         self.setWindowTitle(self.WINDOW_TITLE)
