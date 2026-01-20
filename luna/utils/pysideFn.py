@@ -1,6 +1,6 @@
 import os
 import pymel.core as pm
-import pymel.api as pma
+from maya.OpenMayaUI import MQtUtil
 from PySide2 import QtCore
 from PySide2 import QtGui
 from PySide2 import QtWidgets
@@ -23,7 +23,7 @@ def get_QIcon(name, maya_icon=False):
 
 
 def maya_main_window():
-    mainWindowPtr = pma.MQtUtil_mainWindow()
+    mainWindowPtr = MQtUtil.mainWindow()
     if os.sys.version_info[0] >= 3:
         return wrapInstance(int(mainWindowPtr), QtWidgets.QWidget)
     else:
@@ -33,13 +33,13 @@ def maya_main_window():
 def add_widget_to_layout(widget, control_name):
     if pm.workspaceControl(control_name, q=1, ex=1):
         if os.sys.version_info[0] >= 3:
-            workspaceControlPtr = int(pma.MQtUtil.findControl(control_name))
+            workspaceControlPtr = int(MQtUtil.findControl(control_name))
             widgetPtr = int(getCppPointer(widget)[0])
         else:
-            workspaceControlPtr = long(pma.MQtUtil.findControl(control_name))
+            workspaceControlPtr = long(MQtUtil.findControl(control_name))
             widgetPtr = long(getCppPointer(widget)[0])
 
-        pma.MQtUtil.addWidgetToMayaLayout(widgetPtr, workspaceControlPtr)
+        MQtUtil.addWidgetToMayaLayout(widgetPtr, workspaceControlPtr)
 
 
 def move_window_to_center(qtwindow):
