@@ -20,6 +20,7 @@ Luna provides a comprehensive toolkit for character rigging with support for:
 | Section | Description |
 |---------|-------------|
 | [Getting Started](Getting-Started.md) | Installation, setup, and quick start guide |
+| **[Quick Start: Builder](Quick-Start-Builder.md)** | **Step-by-step tutorial for Luna Builder** |
 | [Architecture](Architecture.md) | High-level architecture and design patterns |
 | [Core Concepts](Core-Concepts.md) | Key concepts: MetaNode, Component, Control, Hook |
 | [Components](Components.md) | All rig components reference |
